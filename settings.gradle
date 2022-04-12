@@ -14,5 +14,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "code_challenge"
 include ':app'
-include ':domin'
+include ':domain'
 include ':data'

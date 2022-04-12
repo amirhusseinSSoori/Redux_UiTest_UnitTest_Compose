@@ -1,4 +1,4 @@
-package com.amirhusseinsoori.domin
+package com.amirhusseinsoori.domain
 
 import org.junit.Test
 

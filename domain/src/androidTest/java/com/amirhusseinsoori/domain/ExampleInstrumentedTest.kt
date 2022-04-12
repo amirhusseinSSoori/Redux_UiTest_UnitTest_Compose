@@ -1,4 +1,4 @@
-package com.amirhusseinsoori.domin
+package com.amirhusseinsoori.domain
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
