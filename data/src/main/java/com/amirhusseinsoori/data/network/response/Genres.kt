@@ -1,4 +1,4 @@
-package com.amirhusseinsoori.code_challenge.model
+package com.amirhusseinsoori.data.network.response
 
 
 import com.google.gson.annotations.SerializedName

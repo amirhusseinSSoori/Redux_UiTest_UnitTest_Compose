@@ -22,7 +22,7 @@ import androidx.paging.compose.items
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
 import com.amirhusseinsoori.code_challenge.R
-import com.amirhusseinsoori.code_challenge.model.Movie
+import com.amirhusseinsoori.data.network.response.Movie
 
 
 @ExperimentalCoilApi
@@ -37,7 +37,7 @@ fun ListContent(items: LazyPagingItems<Movie>) {
             items = items,
 
             ) { data ->
-            data?.let { Items(movie = it) }
+            data?.let { MovieItems(movie = it) }
         }
 
         items.apply {
@@ -61,7 +61,7 @@ fun ListContent(items: LazyPagingItems<Movie>) {
 
 @ExperimentalCoilApi
 @Composable
-fun Items(movie: Movie) {
+fun MovieItems(movie: Movie) {
     val painter =
         rememberImagePainter(data = "https://image.tmdb.org/t/p/w500/${movie.posterPath}") {
             crossfade(durationMillis = 1000)

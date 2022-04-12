@@ -1,15 +1,14 @@
-package com.amirhusseinsoori.code_challenge.network
+package com.amirhusseinsoori.data.network.services
 
 
-import com.amirhusseinsoori.code_challenge.model.Movie
+import com.amirhusseinsoori.data.network.response.Movie
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Path
 import retrofit2.http.Query
 
-interface TmdbApi {
+interface MovieApi {
 
-    @Headers("Content-Type: application/json")
     @GET("movie/popular")
     suspend fun  getMovie(@Query("page") page: Int): List<Movie>
 

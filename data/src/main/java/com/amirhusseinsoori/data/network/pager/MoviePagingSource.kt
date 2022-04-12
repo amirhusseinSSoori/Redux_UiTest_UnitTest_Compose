@@ -1,13 +1,13 @@
-package com.amirhusseinsoori.code_challenge.network
+package com.amirhusseinsoori.data.network.pager
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.amirhusseinsoori.code_challenge.model.Movie
+import com.amirhusseinsoori.data.network.response.Movie
+import com.amirhusseinsoori.data.network.services.MovieApi
 
-class CustomPagingSource (
-    private val api: TmdbApi
+class MoviePagingSource (
+    private val api: MovieApi
 ) : PagingSource<Int, Movie>() {
-
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Movie> {
         val currentPage = params.key ?: 1
         return try {

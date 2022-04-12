@@ -1,6 +1,7 @@
-package com.amirhusseinsoori.code_challenge.model
+package com.amirhusseinsoori.data.network.response
 
 
+import com.amirhusseinsoori.data.network.response.Genres
 import com.google.gson.annotations.SerializedName
 
 
