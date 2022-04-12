@@ -5,10 +5,12 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavHostController
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.compose.collectAsLazyPagingItems
 import coil.annotation.ExperimentalCoilApi
-import com.amirhusseinsoori.code_challenge.ui.MovieViewModel
+import com.amirhusseinsoori.code_challenge.ui.screen.MovieViewModel
+import com.amirhusseinsoori.code_challenge.ui.navigation.SetupNavGraph
 import com.amirhusseinsoori.code_challenge.ui.screen.ListContent
 import com.amirhusseinsoori.code_challenge.ui.theme.Code_challengeTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -20,7 +22,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             Code_challengeTheme {
-                HomeScreen()
+
+                SetupNavGraph()
             }
         }
     }
@@ -30,7 +33,9 @@ class MainActivity : ComponentActivity() {
 @OptIn(ExperimentalPagingApi::class, ExperimentalCoilApi::class)
 @Composable
 fun HomeScreen(
-    homeViewModel: MovieViewModel = hiltViewModel()
+    navController: NavHostController,
+    homeViewModel: MovieViewModel = hiltViewModel(),
+
 ) {
     val getAllImages = homeViewModel.getAllImages.collectAsLazyPagingItems()
     ListContent(items = getAllImages)

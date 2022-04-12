@@ -37,7 +37,7 @@ fun ListContent(items: LazyPagingItems<Movie>) {
             items = items,
 
             ) { data ->
-            data?.let { MovieItems(movie = it) }
+            data?.let { MovieItems(movie =    it) }
         }
 
         items.apply {
@@ -63,7 +63,7 @@ fun ListContent(items: LazyPagingItems<Movie>) {
 @Composable
 fun MovieItems(movie: Movie) {
     val painter =
-        rememberImagePainter(data = "https://image.tmdb.org/t/p/w500/${movie.posterPath}") {
+        rememberImagePainter(data = "https://image.tmdb.org/t/p/w500/${movie.poster_path}") {
             crossfade(durationMillis = 1000)
             error(R.drawable.ic_baseline_error_24)
             placeholder(R.drawable.ic_placeholder)

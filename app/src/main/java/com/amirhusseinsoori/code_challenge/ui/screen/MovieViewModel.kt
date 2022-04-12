@@ -1,4 +1,4 @@
-package com.amirhusseinsoori.code_challenge.ui
+package com.amirhusseinsoori.code_challenge.ui.screen
 
 import androidx.lifecycle.ViewModel
 import androidx.paging.ExperimentalPagingApi

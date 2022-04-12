@@ -1,6 +1,9 @@
 package com.amirhusseinsoori.data.network.services
 
 
+
+
+import com.amirhusseinsoori.data.network.response.Details
 import com.amirhusseinsoori.data.network.response.Movie
 import retrofit2.http.GET
 import retrofit2.http.Headers
@@ -14,5 +17,5 @@ interface MovieApi {
 
     @Headers("Content-Type: application/json")
     @GET("movie/{id}")
-    suspend fun  getMovieById(@Path("id") id:Int) : Movie
+    suspend fun  getMovieById(@Path("id") id:Int) : Details
 }

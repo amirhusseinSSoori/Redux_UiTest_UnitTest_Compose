@@ -1,6 +1,7 @@
-package com.amirhusseinsoori.data.network.response
+package com.amirhusseinsoori.domain.entity
 
-data class Movie(
+
+data class MovieEntity(
     val adult: Boolean,
     val backdrop_path: String,
     val genre_ids: List<Int>,
