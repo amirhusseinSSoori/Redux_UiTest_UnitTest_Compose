@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 @ExperimentalPagingApi
-class Repository @Inject constructor(
+class MovieRepository @Inject constructor(
     private val api: MovieApi,
 ) {
     fun getAllIMovies(): Flow<PagingData<Movie>> {

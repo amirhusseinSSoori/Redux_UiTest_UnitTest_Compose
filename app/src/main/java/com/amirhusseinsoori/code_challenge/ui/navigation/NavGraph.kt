@@ -7,7 +7,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.paging.ExperimentalPagingApi
 import coil.annotation.ExperimentalCoilApi
-import com.amirhusseinsoori.code_challenge.HomeScreen
+import com.amirhusseinsoori.code_challenge.ui.screen.details.DetailsScreen
 
 
 @ExperimentalCoilApi
@@ -19,7 +19,8 @@ fun SetupNavGraph(navController: NavHostController = rememberNavController()) {
         startDestination = Screen.Home.route
     ) {
         composable(route = Screen.Home.route) {
-            HomeScreen(navController)
+//            HomeScreen(navController)
+            DetailsScreen()
         }
 //        composable(route = Screen.Search.route){
 //
