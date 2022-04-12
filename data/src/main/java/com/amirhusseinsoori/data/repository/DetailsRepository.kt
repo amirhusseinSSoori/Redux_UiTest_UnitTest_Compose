@@ -10,8 +10,8 @@ import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 class DetailsRepository @Inject constructor(private val api: MovieApi)  {
-    fun getDetailsRepository(): Flow<CustomResult<Details>> = flow{
-        emit(CustomResult.success(api.getMovieById(675353)))
+    fun getDetailsRepository(id:Int): Flow<CustomResult<Details>> = flow{
+        emit(CustomResult.success(api.getMovieById(id)))
     }.catch {ex->
         emit(CustomResult.failure(ex))
     }

@@ -2,6 +2,7 @@ package com.amirhusseinsoori.code_challenge.ui.screen
 
 import android.util.Log
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.ContentAlpha
@@ -16,6 +17,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.items
@@ -27,7 +29,7 @@ import com.amirhusseinsoori.data.network.response.Movie
 
 @ExperimentalCoilApi
 @Composable
-fun ListContent(items: LazyPagingItems<Movie>) {
+fun ListContent(items: LazyPagingItems<Movie>, navController: NavHostController) {
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(all = 12.dp),
@@ -37,7 +39,7 @@ fun ListContent(items: LazyPagingItems<Movie>) {
             items = items,
 
             ) { data ->
-            data?.let { MovieItems(movie =    it) }
+            data?.let { MovieItems(movie = it, navController) }
         }
 
         items.apply {
@@ -61,7 +63,7 @@ fun ListContent(items: LazyPagingItems<Movie>) {
 
 @ExperimentalCoilApi
 @Composable
-fun MovieItems(movie: Movie) {
+fun MovieItems(movie: Movie, navController: NavHostController) {
     val painter =
         rememberImagePainter(data = "https://image.tmdb.org/t/p/w500/${movie.poster_path}") {
             crossfade(durationMillis = 1000)
@@ -71,7 +73,10 @@ fun MovieItems(movie: Movie) {
     Box(
         modifier = Modifier
             .height(300.dp)
-            .fillMaxWidth(),
+            .fillMaxWidth()
+            .clickable {
+                navController.navigate("details_screen/${movie.id}")
+            },
         contentAlignment = Alignment.BottomCenter
     ) {
         Image(

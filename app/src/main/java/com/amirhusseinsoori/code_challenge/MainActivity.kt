@@ -36,8 +36,8 @@ fun MovieScreen(
     navController: NavHostController,
     homeViewModel: MovieViewModel = hiltViewModel(),
 ) {
-    val getAllImages = homeViewModel.getAllImages.collectAsLazyPagingItems()
-    ListContent(items = getAllImages)
+    val getAllMovies = homeViewModel.getAllImages.collectAsLazyPagingItems()
+    ListContent(items = getAllMovies, navController)
 }
 
 

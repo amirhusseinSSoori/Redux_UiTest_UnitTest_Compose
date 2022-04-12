@@ -10,6 +10,6 @@ import javax.inject.Inject
 @HiltViewModel
 class MovieViewModel @Inject constructor(
     repository: MovieRepository
-): ViewModel() {
+) : ViewModel() {
     val getAllImages = repository.getAllIMovies()
 }

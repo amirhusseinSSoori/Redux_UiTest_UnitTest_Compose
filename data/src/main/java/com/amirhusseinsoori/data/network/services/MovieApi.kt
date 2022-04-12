@@ -15,7 +15,6 @@ interface MovieApi {
     @GET("movie/popular")
     suspend fun  getMovie(@Query("page") page: Int): List<Movie>
 
-    @Headers("Content-Type: application/json")
     @GET("movie/{id}")
     suspend fun  getMovieById(@Path("id") id:Int) : Details
 }
