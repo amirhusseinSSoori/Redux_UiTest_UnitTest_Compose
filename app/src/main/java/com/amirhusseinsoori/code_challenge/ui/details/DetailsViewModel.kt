@@ -1,13 +1,11 @@
-package com.amirhusseinsoori.code_challenge.ui.screen.details
+package com.amirhusseinsoori.code_challenge.ui.details
 
 import android.util.Log
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.amirhusseinsoori.domain.exception.fold
-import com.amirhusseinsoori.data.repository.DetailsRepositoryImp
 import com.amirhusseinsoori.domain.entity.DetailsEntity
-import com.amirhusseinsoori.domain.reository.DetailsRepository
 import com.amirhusseinsoori.domain.useCase.DetailsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow

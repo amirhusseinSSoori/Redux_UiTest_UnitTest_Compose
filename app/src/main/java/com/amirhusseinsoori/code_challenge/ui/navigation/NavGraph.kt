@@ -10,7 +10,7 @@ import androidx.navigation.navArgument
 import androidx.paging.ExperimentalPagingApi
 import coil.annotation.ExperimentalCoilApi
 import com.amirhusseinsoori.code_challenge.MovieScreen
-import com.amirhusseinsoori.code_challenge.ui.screen.details.DetailsScreen
+import com.amirhusseinsoori.code_challenge.ui.details.DetailsScreen
 
 
 @ExperimentalCoilApi
