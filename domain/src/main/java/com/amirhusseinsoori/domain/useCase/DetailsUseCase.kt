@@ -5,6 +5,7 @@ import com.amirhusseinsoori.domain.exception.CustomResult
 import com.amirhusseinsoori.domain.reository.DetailsRepository
 import com.amirhusseinsoori.domain.useCase.base.UseCaseWithParamsImmediate
 import kotlinx.coroutines.flow.Flow
+import java.lang.NullPointerException
 import javax.inject.Inject
 
 class DetailsUseCase @Inject constructor(var repository: DetailsRepository):UseCaseWithParamsImmediate<Int, Flow<CustomResult<DetailsEntity>>>(){
