@@ -31,13 +31,13 @@ class DetailsReducer : Reducer<DetailsViewState, DetailsEffect, DetailsAction> {
     }
 
 
-    private fun stateShowError(currentState: DetailsEffect) =
-        currentState.copy(
-            messageError = currentState.messageError,
+    private fun stateShowError(currentEffect: DetailsEffect) =
+        currentEffect.copy(
+            messageError = currentEffect.messageError,
         )
 
-    private fun stateHideError(currentState: DetailsEffect) =
-        currentState.copy(
+    private fun stateHideError(currentEffect: DetailsEffect) =
+        currentEffect.copy(
             messageError = "NoError",
         )
 

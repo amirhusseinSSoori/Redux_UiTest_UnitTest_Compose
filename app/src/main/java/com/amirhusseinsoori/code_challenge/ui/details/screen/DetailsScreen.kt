@@ -1,5 +1,6 @@
 package com.amirhusseinsoori.code_challenge.ui.details.screen
 
+import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material.Text
@@ -13,16 +14,17 @@ import com.amirhusseinsoori.code_challenge.ui.details.redux.DetailsEffect
 
 @Composable
 fun DetailsScreen() {
-    val homeViewModel: DetailsViewModel = hiltViewModel()
+    val detailsViewModel: DetailsViewModel = hiltViewModel()
     val context = LocalContext.current
     Column {
-        homeViewModel.viewState.collectAsState().let {
-            it.value.data.original_language?.let {
+        detailsViewModel.viewState.collectAsState().let {
+            it.value.data.title?.let {
                 Text(text = it)
+                Log.e("TAG", "DetailsScreen:${it} ", )
             }
 
         }
-        homeViewModel.viewEffect.collectAsState(initial = DetailsEffect()).let {
+        detailsViewModel.viewEffect.collectAsState(initial = DetailsEffect()).let {
             if (it.value.messageError != "NoError") {
                 Toast.makeText(context, "${it.value.messageError}", Toast.LENGTH_SHORT).show()
             }

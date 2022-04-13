@@ -30,15 +30,5 @@ class MainActivity : ComponentActivity() {
 }
 
 
-@OptIn(ExperimentalPagingApi::class, ExperimentalCoilApi::class)
-@Composable
-fun MovieScreen(
-    navController: NavHostController,
-    homeViewModel: MovieViewModel = hiltViewModel(),
-) {
-    val getAllMovies = homeViewModel.viewState.collectAsState()
-    ListContent(items = getAllMovies.value.items.collectAsLazyPagingItems(), navController)
-
-}
 
 

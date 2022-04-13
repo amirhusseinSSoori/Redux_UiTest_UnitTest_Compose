@@ -47,4 +47,11 @@ class MovieViewModel @Inject constructor(
             store.dispatch(action = MovieAction.ShowAllMovies(useCase.execute()))
         }
     }
+
+
+
+
+
+
+
 }

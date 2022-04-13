@@ -17,27 +17,27 @@ import com.amirhusseinsoori.domain.entity.details.SpokenLanguageEntity
 fun Details.mapDetailsToDomain(): DetailsEntity {
     return DetailsEntity(
         adult = adult,
-        backdrop_path = backdrop_path,
-        belongs_to_collection = belongs_to_collection,
+        backdrop_path = backdrop_path ?: "no Data",
+        belongs_to_collection = if (belongs_to_collection is String) belongs_to_collection else "no Data",
         budget = budget,
         genres = genres?.mapGenreListToDomain(),
-        homepage = homepage,
+        homepage = homepage ?: "no Data",
         id = id,
-        imdb_id = imdb_id,
-        original_language = original_language,
-        original_title = original_title,
-        overview = overview,
+        imdb_id = imdb_id ?: "no Data",
+        original_language = original_language ?: "no Data",
+        original_title = original_title ?: "no Data",
+        overview = overview ?: "no Data",
         popularity = popularity,
-        poster_path = poster_path,
+        poster_path = if (poster_path is String) poster_path else "no Data",
         production_companies = production_companies?.mapListProductionCompanyToDomain(),
         production_countries = production_countries?.mapListProductionCountryToDomain(),
-        release_date = release_date,
+        release_date = release_date ?: "no Data",
         revenue = revenue,
         runtime = runtime,
         spoken_languages = spoken_languages?.mapListSpokenLanguageToDomain(),
-        status = status,
-        tagline = tagline,
-        title = title,
+        status = status ?: "no Data",
+        tagline = tagline ?: "no Data",
+        title = title ?: "no Data",
         video = video,
         vote_average = vote_average,
         vote_count = vote_count
@@ -51,15 +51,15 @@ fun List<SpokenLanguage>.mapListSpokenLanguageToDomain(): List<SpokenLanguageEnt
 
 fun SpokenLanguage.mapSpokenLanguageToDomain(): SpokenLanguageEntity {
     return SpokenLanguageEntity(
-        iso_639_1 = iso_639_1,
-        name = name
+        iso_639_1 = iso_639_1 ?: "no Data",
+        name = name ?: "no Data"
     )
 }
 
 fun ProductionCountry.mapProductionCountryToDomain(): ProductionCountryEntity {
     return ProductionCountryEntity(
-        iso_3166_1 = iso_3166_1,
-        name = name
+        iso_3166_1 = iso_3166_1 ?: "no Data",
+        name = name ?: "no Data"
     )
 
 }
@@ -72,9 +72,9 @@ fun List<ProductionCountry>.mapListProductionCountryToDomain(): List<ProductionC
 fun ProductionCompany.mapProductionCompanyToDomain(): ProductionCompanyEntity {
     return ProductionCompanyEntity(
         id = id,
-        logo_path = logo_path,
-        name = name,
-        origin_country = origin_country
+        logo_path = logo_path ?: "no Data",
+        name = name ?: "no Data",
+        origin_country = origin_country ?: "no Data"
     )
 }
 
@@ -85,7 +85,7 @@ fun List<ProductionCompany>.mapListProductionCompanyToDomain(): List<ProductionC
 fun Genre.mapGenreToDomain(): GenreEntity {
     return GenreEntity(
         id = id,
-        name = name
+        name = name ?: "no Data"
     )
 }
 

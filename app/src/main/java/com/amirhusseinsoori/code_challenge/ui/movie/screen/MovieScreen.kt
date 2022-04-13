@@ -1,6 +1,7 @@
 package com.amirhusseinsoori.code_challenge.ui.movie.screen
 
 import android.util.Log
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -10,26 +11,43 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
+import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
+import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
 import com.amirhusseinsoori.code_challenge.R
+import com.amirhusseinsoori.code_challenge.ui.movie.MovieViewModel
 import com.amirhusseinsoori.domain.entity.MovieEntity
 
 
+@OptIn(ExperimentalPagingApi::class, ExperimentalCoilApi::class)
+@Composable
+fun MovieScreen(
+    navController: NavHostController,
+    viewModel: MovieViewModel,
+) {
+    val getAllMovies = viewModel.viewState.collectAsState()
+    ListContent(items = getAllMovies.value.items.collectAsLazyPagingItems(), navController)
+
+}
 @ExperimentalCoilApi
 @Composable
 fun ListContent(items: LazyPagingItems<MovieEntity>, navController: NavHostController) {
+    val context = LocalContext.current
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(all = 12.dp),
@@ -37,8 +55,10 @@ fun ListContent(items: LazyPagingItems<MovieEntity>, navController: NavHostContr
     ) {
         items(
             items = items,
-            ) { data ->
-            data?.let { MovieItems(movie = it, navController) }
+        ) { data ->
+            data?.let {
+                MovieItems(movie = it, navController)
+            }
         }
 
         items.apply {
@@ -51,9 +71,11 @@ fun ListContent(items: LazyPagingItems<MovieEntity>, navController: NavHostContr
                 }
                 loadState.refresh is LoadState.Error -> {
                     Log.e("TAG", "ListContent: ")
+                    Toast.makeText(context, "please try action", Toast.LENGTH_SHORT).show()
                 }
                 loadState.append is LoadState.Error -> {
                     Log.e("TAG", "ListContent: ")
+                    Toast.makeText(context, "please try action", Toast.LENGTH_SHORT).show()
                 }
             }
         }

@@ -32,13 +32,13 @@ class MovieReducer : Reducer<MovieViewState, MovieEffect, MovieAction> {
     }
 
 
-    private fun stateShowError(currentState: MovieEffect) =
-        currentState.copy(
-            messageError = currentState.messageError,
+     private fun stateShowError(currentEffect: MovieEffect) =
+        currentEffect.copy(
+            messageError = currentEffect.messageError,
         )
 
-    private fun stateHideError(currentState: MovieEffect) =
-        currentState.copy(
+    private fun stateHideError(currentEffect: MovieEffect) =
+        currentEffect.copy(
             messageError = "NoError",
         )
 
