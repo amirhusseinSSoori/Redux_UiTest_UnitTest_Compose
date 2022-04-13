@@ -1,8 +1,7 @@
 package com.amirhusseinsoori.data.repository
 
-import com.amirhusseinsoori.data.exception.CustomResult
+import com.amirhusseinsoori.domain.exception.CustomResult
 import com.amirhusseinsoori.data.mapper.mapDetailsToDomain
-import com.amirhusseinsoori.data.network.response.Details
 import com.amirhusseinsoori.data.network.services.MovieApi
 import com.amirhusseinsoori.domain.entity.DetailsEntity
 import kotlinx.coroutines.flow.Flow

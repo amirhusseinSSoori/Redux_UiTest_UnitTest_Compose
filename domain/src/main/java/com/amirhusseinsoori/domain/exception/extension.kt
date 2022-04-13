@@ -1,4 +1,4 @@
-package com.amirhusseinsoori.data.exception
+package com.amirhusseinsoori.domain.exception
 
 inline fun <R, T> CustomResult<T>.fold(
     onSuccess: (value: T) -> R,

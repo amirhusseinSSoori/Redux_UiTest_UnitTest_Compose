@@ -1,4 +1,4 @@
-package com.amirhusseinsoori.data.exception
+package com.amirhusseinsoori.domain.exception
 
 public class CustomResult<T> constructor(
     val value: Any?

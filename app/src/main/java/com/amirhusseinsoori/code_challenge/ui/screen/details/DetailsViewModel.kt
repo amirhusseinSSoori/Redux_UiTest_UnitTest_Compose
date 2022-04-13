@@ -4,8 +4,7 @@ import android.util.Log
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.amirhusseinsoori.data.exception.fold
-import com.amirhusseinsoori.data.network.response.Details
+import com.amirhusseinsoori.domain.exception.fold
 import com.amirhusseinsoori.data.repository.DetailsRepository
 import com.amirhusseinsoori.domain.entity.DetailsEntity
 import dagger.hilt.android.lifecycle.HiltViewModel

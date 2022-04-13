@@ -1,4 +1,4 @@
-package com.amirhusseinsoori.data.exception
+package com.amirhusseinsoori.domain.exception
 
 sealed class LoadingOccurs {
     object StartLoading : LoadingOccurs()
