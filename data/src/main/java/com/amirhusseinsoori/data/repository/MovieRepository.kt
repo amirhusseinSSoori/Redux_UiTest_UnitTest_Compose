@@ -7,6 +7,7 @@ import androidx.paging.PagingData
 import com.amirhusseinsoori.data.network.pager.MoviePagingSource
 import com.amirhusseinsoori.data.network.response.Movie
 import com.amirhusseinsoori.data.network.services.MovieApi
+import com.amirhusseinsoori.domain.entity.MovieEntity
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
@@ -14,7 +15,7 @@ import javax.inject.Inject
 class MovieRepository @Inject constructor(
     private val api: MovieApi,
 ) {
-    fun getAllIMovies(): Flow<PagingData<Movie>> {
+    fun getAllIMovies(): Flow<PagingData<MovieEntity>> {
         return Pager(
             config = PagingConfig(pageSize = 20),
             pagingSourceFactory = {

@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.amirhusseinsoori.data.exception.fold
 import com.amirhusseinsoori.data.network.response.Details
 import com.amirhusseinsoori.data.repository.DetailsRepository
+import com.amirhusseinsoori.domain.entity.DetailsEntity
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -52,5 +53,5 @@ class DetailsViewModel @Inject constructor(
 
 
 data class State(
-    val data: Details = Details()
+    val data: DetailsEntity = DetailsEntity()
 )

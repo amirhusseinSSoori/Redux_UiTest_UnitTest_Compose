@@ -25,11 +25,12 @@ import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
 import com.amirhusseinsoori.code_challenge.R
 import com.amirhusseinsoori.data.network.response.Movie
+import com.amirhusseinsoori.domain.entity.MovieEntity
 
 
 @ExperimentalCoilApi
 @Composable
-fun ListContent(items: LazyPagingItems<Movie>, navController: NavHostController) {
+fun ListContent(items: LazyPagingItems<MovieEntity>, navController: NavHostController) {
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(all = 12.dp),
@@ -63,7 +64,7 @@ fun ListContent(items: LazyPagingItems<Movie>, navController: NavHostController)
 
 @ExperimentalCoilApi
 @Composable
-fun MovieItems(movie: Movie, navController: NavHostController) {
+fun MovieItems(movie: MovieEntity, navController: NavHostController) {
     val painter =
         rememberImagePainter(data = "https://image.tmdb.org/t/p/w500/${movie.poster_path}") {
             crossfade(durationMillis = 1000)

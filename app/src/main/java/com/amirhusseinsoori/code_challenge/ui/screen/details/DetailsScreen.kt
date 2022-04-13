@@ -15,7 +15,7 @@ fun DetailsScreen() {
 
    Column {
        homeViewModel._state.collectAsState().let {
-           it.value.data.homepage?.let {
+           it.value.data.original_language?.let {
                Text(text = it)
            }
 
