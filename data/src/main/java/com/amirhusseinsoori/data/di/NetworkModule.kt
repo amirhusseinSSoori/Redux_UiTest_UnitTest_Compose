@@ -1,6 +1,7 @@
 package com.amirhusseinsoori.code_challenge.data.di
 
 
+import com.amirhusseinsoori.common.Constant.BaseUrl
 import com.amirhusseinsoori.data.BuildConfig.DEBUG
 import com.amirhusseinsoori.data.network.interceptor.AuthInterceptor
 import com.amirhusseinsoori.data.network.interceptor.ResponseFormatterInterceptor
@@ -54,7 +55,7 @@ object NetworkModule {
     @Provides
     fun getRetrofit(okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
         .client(okHttpClient)
-        .baseUrl("https://api.themoviedb.org/3/")
+        .baseUrl(BaseUrl)
         .addConverterFactory(GsonConverterFactory.create())
         .addConverterFactory(ScalarsConverterFactory.create())
         .build()

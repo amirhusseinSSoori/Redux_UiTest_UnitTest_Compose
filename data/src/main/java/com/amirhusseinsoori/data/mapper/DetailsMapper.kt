@@ -1,13 +1,12 @@
 package com.amirhusseinsoori.data.mapper
 
-import androidx.lifecycle.Transformations.map
+import com.amirhusseinsoori.common.Constant.NoData
 import com.amirhusseinsoori.data.network.response.Details
 import com.amirhusseinsoori.data.network.response.movieDetails.Genre
 import com.amirhusseinsoori.data.network.response.movieDetails.ProductionCompany
 import com.amirhusseinsoori.data.network.response.movieDetails.ProductionCountry
 import com.amirhusseinsoori.data.network.response.movieDetails.SpokenLanguage
 import com.amirhusseinsoori.domain.entity.DetailsEntity
-import com.amirhusseinsoori.domain.entity.GenresEntity
 import com.amirhusseinsoori.domain.entity.details.GenreEntity
 import com.amirhusseinsoori.domain.entity.details.ProductionCompanyEntity
 import com.amirhusseinsoori.domain.entity.details.ProductionCountryEntity
@@ -17,28 +16,28 @@ import com.amirhusseinsoori.domain.entity.details.SpokenLanguageEntity
 fun Details.mapDetailsToDomain(): DetailsEntity {
     return DetailsEntity(
         adult = adult,
-        backdrop_path = backdrop_path ?: "no Data",
-        belongs_to_collection = if (belongs_to_collection is String) belongs_to_collection else "no Data",
+        backdrop_path = backdrop_path ?: NoData,
+        belongs_to_collection = if (belongs_to_collection is String) belongs_to_collection else NoData,
         budget = budget,
         genres = genres?.mapGenreListToDomain(),
-        homepage = homepage ?: "no Data",
+        homepage = homepage ?: NoData,
         id = id,
-        imdb_id = imdb_id ?: "no Data",
-        original_language = original_language ?: "no Data",
-        original_title = original_title ?: "no Data",
-        overview = overview ?: "no Data",
+        imdb_id = imdb_id ?: NoData,
+        original_language = original_language ?: NoData,
+        original_title = original_title ?: NoData,
+        overview = overview ?: NoData,
         popularity = popularity,
-        poster_path = if (poster_path is String) poster_path else "no Data",
+        poster_path = if (poster_path is String) poster_path else NoData,
         production_companies = production_companies?.mapListProductionCompanyToDomain(),
         production_countries = production_countries?.mapListProductionCountryToDomain(),
-        release_date = release_date ?: "no Data",
+        release_date = release_date ?: NoData,
         revenue = revenue,
         runtime = runtime,
         spoken_languages = spoken_languages?.mapListSpokenLanguageToDomain(),
-        status = status ?: "no Data",
-        tagline = tagline ?: "no Data",
-        title = title ?: "no Data",
-        video = video ,
+        status = status ?: NoData,
+        tagline = tagline ?: NoData,
+        title = title ?: NoData,
+        video = video,
         vote_average = vote_average,
         vote_count = vote_count
     )
@@ -51,15 +50,15 @@ fun List<SpokenLanguage>.mapListSpokenLanguageToDomain(): List<SpokenLanguageEnt
 
 fun SpokenLanguage.mapSpokenLanguageToDomain(): SpokenLanguageEntity {
     return SpokenLanguageEntity(
-        iso_639_1 = iso_639_1 ?: "no Data",
-        name = name ?: "no Data"
+        iso_639_1 = iso_639_1 ?: NoData,
+        name = name ?: NoData
     )
 }
 
 fun ProductionCountry.mapProductionCountryToDomain(): ProductionCountryEntity {
     return ProductionCountryEntity(
-        iso_3166_1 = iso_3166_1 ?: "no Data",
-        name = name ?: "no Data"
+        iso_3166_1 = iso_3166_1 ?: NoData,
+        name = name ?: NoData
     )
 
 }
@@ -72,9 +71,9 @@ fun List<ProductionCountry>.mapListProductionCountryToDomain(): List<ProductionC
 fun ProductionCompany.mapProductionCompanyToDomain(): ProductionCompanyEntity {
     return ProductionCompanyEntity(
         id = id,
-        logo_path = logo_path ?: "no Data",
-        name = name ?: "no Data",
-        origin_country = origin_country ?: "no Data"
+        logo_path = logo_path ?: NoData,
+        name = name ?: NoData,
+        origin_country = origin_country ?: NoData
     )
 }
 
@@ -85,7 +84,7 @@ fun List<ProductionCompany>.mapListProductionCompanyToDomain(): List<ProductionC
 fun Genre.mapGenreToDomain(): GenreEntity {
     return GenreEntity(
         id = id,
-        name = name ?: "no Data"
+        name = name ?: NoData
     )
 }
 

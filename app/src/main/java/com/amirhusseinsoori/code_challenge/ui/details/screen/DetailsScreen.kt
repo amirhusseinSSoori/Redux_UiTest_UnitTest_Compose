@@ -10,6 +10,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.amirhusseinsoori.code_challenge.ui.details.DetailsViewModel
 import com.amirhusseinsoori.code_challenge.ui.details.redux.DetailsEffect
+import com.amirhusseinsoori.common.Constant.NoError
 
 
 @Composable
@@ -24,11 +25,9 @@ fun DetailsScreen() {
             }
         }
         detailsViewModel.viewEffect.collectAsState(initial = DetailsEffect()).let {
-            if (it.value.messageError != "NoError") {
+            if (it.value.messageError != NoError) {
                 Toast.makeText(context, "${it.value.messageError}", Toast.LENGTH_SHORT).show()
             }
         }
     }
-
-
 }

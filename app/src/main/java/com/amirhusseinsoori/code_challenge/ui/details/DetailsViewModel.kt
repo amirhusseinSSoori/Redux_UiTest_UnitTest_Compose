@@ -8,6 +8,8 @@ import com.amirhusseinsoori.code_challenge.ui.details.redux.DetailsAction
 import com.amirhusseinsoori.code_challenge.ui.details.redux.DetailsEffect
 import com.amirhusseinsoori.code_challenge.ui.details.redux.DetailsReducer
 import com.amirhusseinsoori.code_challenge.ui.details.redux.DetailsViewState
+import com.amirhusseinsoori.common.Constant
+import com.amirhusseinsoori.common.Constant.NoError
 import com.amirhusseinsoori.domain.exception.fold
 import com.amirhusseinsoori.domain.entity.DetailsEntity
 import com.amirhusseinsoori.domain.exception.LoadingOccurs
@@ -46,7 +48,7 @@ class DetailsViewModel @Inject constructor(
             detailsUseCase.execute(id).collect { it ->
                 it.fold(
                     onSuccess = {
-                        store.effect(DetailsAction.ShowHide("NoError")) { DetailsEffect("NoError") }
+                        store.effect(DetailsAction.ShowHide(NoError)) { DetailsEffect(NoError) }
                         store.dispatch(action = DetailsAction.ShowDetailsMovie(it))
                     },
                     onLoading = {
