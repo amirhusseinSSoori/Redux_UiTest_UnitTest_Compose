@@ -18,11 +18,10 @@ fun DetailsScreen() {
     val context = LocalContext.current
     Column {
         detailsViewModel.viewState.collectAsState().let {
-            it.value.data.title?.let {
-                Text(text = it)
-                Log.e("TAG", "DetailsScreen:${it} ", )
+            it.value.data.apply {
+                Text(text = title)
+                Log.e("TAG", "DetailsScreen:${title} ")
             }
-
         }
         detailsViewModel.viewEffect.collectAsState(initial = DetailsEffect()).let {
             if (it.value.messageError != "NoError") {

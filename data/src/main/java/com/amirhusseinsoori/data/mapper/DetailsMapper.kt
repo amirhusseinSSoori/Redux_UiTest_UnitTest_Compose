@@ -38,7 +38,7 @@ fun Details.mapDetailsToDomain(): DetailsEntity {
         status = status ?: "no Data",
         tagline = tagline ?: "no Data",
         title = title ?: "no Data",
-        video = video,
+        video = video ,
         vote_average = vote_average,
         vote_count = vote_count
     )
