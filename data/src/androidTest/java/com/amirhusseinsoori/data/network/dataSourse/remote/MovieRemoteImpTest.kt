@@ -4,41 +4,37 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import app.cash.turbine.test
 import com.amirhusseinsoori.data.BaseTest
 import com.amirhusseinsoori.data.network.services.MovieApi
-import com.amirhusseinsoori.domain.dataSource.remote.DetailsRemote
+import com.amirhusseinsoori.domain.dataSource.remote.MovieRemote
 import com.amirhusseinsoori.domain.exception.CustomResult
 import com.google.common.truth.Truth
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import kotlin.time.ExperimentalTime
 
-@ExperimentalTime
-@ExperimentalCoroutinesApi
-class DetailsRemoteImpTest : BaseTest() {
+class MovieRemoteImpTest: BaseTest() {
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
 
-    private lateinit var productRemoteDataSource: DetailsRemote
+    private lateinit var productRemoteDataSource: MovieRemote
 
     @Before
     override fun setup() {
         super.setup()
         productRemoteDataSource =
-            DetailsRemoteImp(getApiService(MovieApi::class.java))
+            MovieRemoteImp(getApiService(MovieApi::class.java))
     }
 
 
     @Test
     fun giveFakeMovies_getList_returnSuccess() = runBlocking {
-        productRemoteDataSource.fetchDetailsRepository(675353).test(timeoutMs = 60_000L) {
+        productRemoteDataSource.fetchAllIMovies().test(timeoutMs = 60_000L) {
             awaitItem().let {
                 Truth.assertThat(it).isInstanceOf(CustomResult.success(it)::class.java)
                 Truth.assertThat(it).isNotNull()
             }
 
-           cancelAndIgnoreRemainingEvents()
+            cancelAndIgnoreRemainingEvents()
         }
     }
 }
