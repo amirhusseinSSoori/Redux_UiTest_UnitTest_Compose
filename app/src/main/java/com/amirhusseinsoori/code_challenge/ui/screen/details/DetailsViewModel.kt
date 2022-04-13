@@ -5,8 +5,9 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.amirhusseinsoori.domain.exception.fold
-import com.amirhusseinsoori.data.repository.DetailsRepository
+import com.amirhusseinsoori.data.repository.DetailsRepositoryImp
 import com.amirhusseinsoori.domain.entity.DetailsEntity
+import com.amirhusseinsoori.domain.reository.DetailsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
