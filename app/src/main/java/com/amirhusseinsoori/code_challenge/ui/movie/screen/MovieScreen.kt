@@ -1,4 +1,4 @@
-package com.amirhusseinsoori.code_challenge.ui.screen
+package com.amirhusseinsoori.code_challenge.ui.movie.screen
 
 import android.util.Log
 import androidx.compose.foundation.Image
@@ -24,7 +24,6 @@ import androidx.paging.compose.items
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
 import com.amirhusseinsoori.code_challenge.R
-import com.amirhusseinsoori.data.network.response.Movie
 import com.amirhusseinsoori.domain.entity.MovieEntity
 
 
