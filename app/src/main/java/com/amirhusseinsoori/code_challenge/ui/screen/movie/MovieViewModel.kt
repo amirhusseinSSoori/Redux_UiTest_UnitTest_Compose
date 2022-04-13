@@ -4,13 +4,14 @@ import androidx.lifecycle.ViewModel
 import androidx.paging.ExperimentalPagingApi
 import com.amirhusseinsoori.data.repository.MovieRepositoryImp
 import com.amirhusseinsoori.domain.reository.MovieRepository
+import com.amirhusseinsoori.domain.useCase.ListMovieUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @ExperimentalPagingApi
 @HiltViewModel
 class MovieViewModel @Inject constructor(
-    repository: MovieRepository
+    useCase: ListMovieUseCase
 ) : ViewModel() {
-    val getAllImages = repository.getAllIMovies()
+    val getAllImages = useCase.execute()
 }

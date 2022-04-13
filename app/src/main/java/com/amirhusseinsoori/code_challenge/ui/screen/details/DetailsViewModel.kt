@@ -8,6 +8,7 @@ import com.amirhusseinsoori.domain.exception.fold
 import com.amirhusseinsoori.data.repository.DetailsRepositoryImp
 import com.amirhusseinsoori.domain.entity.DetailsEntity
 import com.amirhusseinsoori.domain.reository.DetailsRepository
+import com.amirhusseinsoori.domain.useCase.DetailsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -17,7 +18,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DetailsViewModel @Inject constructor(
-    private val detailsRepository: DetailsRepository,
+    private val detailsUseCase: DetailsUseCase,
     private val savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
     val state = MutableStateFlow<State>(State())
@@ -31,7 +32,7 @@ class DetailsViewModel @Inject constructor(
 
       fun event(id: Int) {
         viewModelScope.launch {
-            detailsRepository.getDetailsRepository(id).collect { it ->
+            detailsUseCase.execute(id).collect { it ->
                 it.fold(
                     onSuccess = {
                         Log.e("TAG", "event:${it.toString()} ")
