@@ -22,7 +22,6 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             Code_challengeTheme {
-
                 SetupNavGraph()
             }
         }

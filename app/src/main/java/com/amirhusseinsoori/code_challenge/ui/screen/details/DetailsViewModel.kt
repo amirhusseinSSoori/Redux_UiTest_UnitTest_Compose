@@ -19,7 +19,7 @@ import javax.inject.Inject
 @HiltViewModel
 class DetailsViewModel @Inject constructor(
     private val detailsUseCase: DetailsUseCase,
-    private val savedStateHandle: SavedStateHandle,
+    savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
     val state = MutableStateFlow<State>(State())
     val _state = state.asStateFlow()
