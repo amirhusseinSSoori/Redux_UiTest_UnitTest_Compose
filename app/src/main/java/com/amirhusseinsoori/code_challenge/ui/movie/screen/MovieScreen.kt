@@ -38,7 +38,6 @@ fun ListContent(items: LazyPagingItems<MovieEntity>, navController: NavHostContr
     ) {
         items(
             items = items,
-
             ) { data ->
             data?.let { MovieItems(movie = it, navController) }
         }

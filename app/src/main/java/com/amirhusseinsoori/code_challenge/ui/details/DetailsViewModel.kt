@@ -24,7 +24,6 @@ class DetailsViewModel @Inject constructor(
     private val detailsUseCase: DetailsUseCase,
     savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
-
     private val store = Store(
         initialState = DetailsViewState(),
         initialEffect = DetailsEffect(),
@@ -42,7 +41,7 @@ class DetailsViewModel @Inject constructor(
         }
     }
 
-    fun event(id: Int) {
+    private fun event(id: Int) {
         viewModelScope.launch {
             detailsUseCase.execute(id).collect { it ->
                 it.fold(
