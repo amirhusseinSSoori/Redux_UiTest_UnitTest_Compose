@@ -19,9 +19,10 @@ import com.amirhusseinsoori.code_challenge.ui.movie.screen.MovieScreen
 @ExperimentalCoilApi
 @ExperimentalPagingApi
 @Composable
-fun SetupNavGraph(navController: NavHostController = rememberNavController()) {
-    val movieViewModel: MovieViewModel = hiltViewModel()
-
+fun SetupNavGraph(
+    movieViewModel: MovieViewModel,
+    navController: NavHostController = rememberNavController()
+) {
     NavHost(
         navController = navController,
         startDestination = ScreenRoute.Movie.route
