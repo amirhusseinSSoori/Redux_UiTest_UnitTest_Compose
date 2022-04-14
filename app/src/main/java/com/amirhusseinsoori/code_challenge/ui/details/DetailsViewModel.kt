@@ -1,6 +1,5 @@
 package com.amirhusseinsoori.code_challenge.ui.details
 
-import android.util.Log
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -8,11 +7,9 @@ import com.amirhusseinsoori.code_challenge.ui.details.redux.DetailsAction
 import com.amirhusseinsoori.code_challenge.ui.details.redux.DetailsEffect
 import com.amirhusseinsoori.code_challenge.ui.details.redux.DetailsReducer
 import com.amirhusseinsoori.code_challenge.ui.details.redux.DetailsViewState
-import com.amirhusseinsoori.common.Constant
 import com.amirhusseinsoori.common.Constant.NoError
-import com.amirhusseinsoori.domain.exception.fold
-import com.amirhusseinsoori.domain.entity.DetailsEntity
 import com.amirhusseinsoori.domain.exception.LoadingOccurs
+import com.amirhusseinsoori.domain.exception.fold
 import com.amirhusseinsoori.domain.redux.LoggingMiddleware
 import com.amirhusseinsoori.domain.redux.Store
 import com.amirhusseinsoori.domain.useCase.DetailsUseCase

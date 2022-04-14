@@ -1,6 +1,7 @@
 package com.amirhusseinsoori.code_challenge.ui.navigation
 
 sealed class ScreenRoute(val route: String) {
-    object Movie : ScreenRoute("home_screen/{userId}")
-    object Details : ScreenRoute("details_screen/{userId}")
+    object Intro : ScreenRoute("intro_screen")
+    object Movie : ScreenRoute("movie_screen")
+    object Details : ScreenRoute("details_screen")
 }

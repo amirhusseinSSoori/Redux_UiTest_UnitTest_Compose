@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">code_challenge</string>
     <string name="error_connection"> مشکلی به وجود آمده </string>
-    <string name="intro">Movie Mvi</string>
+    <string name="intro">Movies</string>
     <string name="language">language</string>
     <string name="budget">budget</string>
     <string name="Year">year</string>
