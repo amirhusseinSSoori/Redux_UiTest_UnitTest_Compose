@@ -17,9 +17,10 @@ fun MovieScreen(
     viewModel: MovieViewModel,
 ) {
     ListMovies(
-            items = viewModel.viewState.collectAsState().value.items.collectAsLazyPagingItems(),
-            navController
-        )
+        viewModel,
+        items = viewModel.viewState.collectAsState().value.items.collectAsLazyPagingItems(),
+        navController
+    )
 }
 
 

@@ -1,10 +1,10 @@
 package com.amirhusseinsoori.code_challenge.ui
 
 import androidx.compose.animation.*
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.Button
+import androidx.compose.material.CircularProgressIndicator
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -19,9 +19,11 @@ import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.amirhusseinsoori.code_challenge.R
+import com.amirhusseinsoori.code_challenge.ui.theme.black
+import com.amirhusseinsoori.code_challenge.ui.theme.white
 
 @Composable
-fun Loader(anim:Int) {
+fun Loader(anim: Int) {
 
     val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(anim))
     val progress by animateLottieCompositionAsState(composition)
@@ -38,6 +40,43 @@ fun Loader(anim:Int) {
         )
     }
 }
+
+@Composable
+fun Loading(visible: Boolean) {
+    AnimatedVisibility(visible = visible) {
+        Column(
+            modifier = Modifier
+                .fillMaxSize(),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            CircularProgressIndicator(color = black)
+        }
+    }
+
+
+}
+
+@Composable
+fun ShowErrorDialog(visible: Boolean, callEvent: () -> Unit) {
+   if (visible) {
+        Column(
+            modifier = Modifier
+                .fillMaxSize(),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Button(onClick = {
+                callEvent()
+            }) {
+                Text(text = "Try again")
+            }
+        }
+    }
+
+
+}
+
 val utilFont = FontFamily(
     Font(R.font.domine_bold, FontWeight.Light),
     Font(R.font.domine_regular, FontWeight.Normal),
