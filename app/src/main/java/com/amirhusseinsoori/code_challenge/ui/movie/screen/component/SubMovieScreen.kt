@@ -9,11 +9,8 @@ import androidx.compose.material.ContentAlpha
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
@@ -26,6 +23,7 @@ import androidx.navigation.NavHostController
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
+import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
@@ -40,9 +38,9 @@ import com.amirhusseinsoori.domain.entity.MovieEntity
 @Composable
 fun ListMovies(
     viewModel: MovieViewModel,
-    items: LazyPagingItems<MovieEntity>,
     navController: NavHostController
 ) {
+    val items = viewModel.viewState.collectAsState().value.items.collectAsLazyPagingItems()
     val context = LocalContext.current
     var isLoading by rememberSaveable {
         mutableStateOf(true)
