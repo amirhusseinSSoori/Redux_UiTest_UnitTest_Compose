@@ -10,6 +10,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.paging.ExperimentalPagingApi
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.amirhusseinsoori.code_challenge.ui.details.screen.DetailsScreen
+import com.amirhusseinsoori.code_challenge.ui.intro.Intro
 import com.amirhusseinsoori.code_challenge.ui.movie.MovieViewModel
 import com.amirhusseinsoori.code_challenge.ui.movie.screen.MovieScreen
 import com.amirhusseinsoori.code_challenge.ui.navigation.SetupNavGraph
@@ -75,6 +76,18 @@ class MainActivityTest {
                 val navController: NavHostController = rememberNavController()
                 val viewModel: MovieViewModel = hiltViewModel()
                 MovieScreen(navController, viewModel = viewModel)
+            }
+        }
+    }
+
+
+
+    @Test
+    fun introTest() {
+        composeTestRule.setContent {
+            Code_challengeTheme {
+                val navController: NavHostController = rememberNavController()
+                Intro(navController)
             }
         }
     }
