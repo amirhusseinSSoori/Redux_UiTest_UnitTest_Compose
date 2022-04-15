@@ -39,7 +39,7 @@ class MainActivityTest {
   @ExperimentalComposeUiApi
   @ExperimentalAnimationApi
   @Test
-  fun detailsLoadingTest() {
+  fun activityTest() {
     composeTestRule.setContent {
       Code_challengeTheme {
         SetupNavGraph()
