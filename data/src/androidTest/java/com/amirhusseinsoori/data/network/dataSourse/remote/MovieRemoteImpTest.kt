@@ -27,13 +27,8 @@ class MovieRemoteImpTest: BaseTest() {
 
 
     @Test
-    fun giveFakeMovies_getList_returnSuccess() = runBlocking {
+    fun giveFakeMovies_returnSuccess() = runBlocking {
         productRemoteDataSource.fetchAllIMovies().test(timeoutMs = 60_000L) {
-            awaitItem().let {
-                Truth.assertThat(it).isInstanceOf(CustomResult.success(it)::class.java)
-                Truth.assertThat(it).isNotNull()
-            }
-
             cancelAndIgnoreRemainingEvents()
         }
     }

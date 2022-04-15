@@ -31,7 +31,7 @@ class DetailsRemoteImpTest : BaseTest() {
 
 
     @Test
-    fun giveFakeMovies_getList_returnSuccess() = runBlocking {
+    fun getFakeDetails_returnSuccess() = runBlocking {
         productRemoteDataSource.fetchDetailsRepository(675353).test(timeoutMs = 60_000L) {
             awaitItem().let {
                 Truth.assertThat(it).isInstanceOf(CustomResult.success(it)::class.java)
