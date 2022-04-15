@@ -40,7 +40,7 @@ class DetailsViewModel @Inject constructor(
         }
     }
 
-    private fun event(id: Int) {
+    fun event(id: Int) {
         viewModelScope.launch {
             detailsUseCase.execute(id).collect { it ->
                 it.fold(
