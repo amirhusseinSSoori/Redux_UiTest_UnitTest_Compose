@@ -42,7 +42,9 @@ fun Intro(navController: NavHostController) {
             )
         )
         delay(3000L)
-        navController.navigate(ScreenRoute.Movie.route)
+        navController.navigate(ScreenRoute.Movie.route){
+            popUpTo(ScreenRoute.Intro.route) { inclusive = true }
+        }
     }
     Column(
         modifier = Modifier
