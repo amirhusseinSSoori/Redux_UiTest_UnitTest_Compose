@@ -47,7 +47,7 @@ fun Intro(navController: NavHostController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(black), horizontalAlignment = Alignment.CenterHorizontally,
+            .background(white), horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
         Loader(R.raw.cinema)
