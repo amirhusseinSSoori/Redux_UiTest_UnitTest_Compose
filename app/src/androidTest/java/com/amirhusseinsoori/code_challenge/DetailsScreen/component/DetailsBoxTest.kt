@@ -1,8 +1,7 @@
 package com.amirhusseinsoori.code_challenge.DetailsScreen.component
 
 import androidx.compose.ui.test.junit4.createComposeRule
-import com.amirhusseinsoori.code_challenge.ui.details.screen.DetailsBox
-import com.amirhusseinsoori.code_challenge.ui.details.screen.Hover
+import com.amirhusseinsoori.code_challenge.ui.details.screen.component.DetailsBox
 import org.junit.Rule
 import org.junit.Test
 
