@@ -8,13 +8,13 @@ import com.amirhusseinsoori.code_challenge.ui.details.redux.DetailsEffect
 import com.amirhusseinsoori.code_challenge.ui.details.redux.DetailsReducer
 import com.amirhusseinsoori.code_challenge.ui.details.redux.DetailsViewState
 import com.amirhusseinsoori.common.Constant.NoError
-import com.amirhusseinsoori.domain.exception.LoadingOccurs
-import com.amirhusseinsoori.domain.exception.fold
+import com.amirhusseinsoori.common.eventHandle
 import com.amirhusseinsoori.domain.redux.LoggingMiddleware
 import com.amirhusseinsoori.domain.redux.Store
 import com.amirhusseinsoori.domain.useCase.DetailsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -42,29 +42,14 @@ class DetailsViewModel @Inject constructor(
 
     fun event(id: Int) {
         viewModelScope.launch {
-            detailsUseCase.execute(id).collect { it ->
-                it.fold(
-                    onSuccess = {
-                        store.effect(DetailsAction.ShowHide(NoError)) { DetailsEffect(NoError) }
-                        store.dispatch(action = DetailsAction.ShowDetailsMovie(it))
-                    },
-                    onLoading = {
-                        when (it) {
-                            LoadingOccurs.StartLoading -> {
-                                store.dispatch(action = DetailsAction.LoadingStarted)
-                            }
-                            LoadingOccurs.FinishLoading -> {
-                                store.dispatch(action = DetailsAction.LoadingFinished)
-                            }
-                        }
-                    },
-                    onFailure = {
-                        store.effect(DetailsAction.ShowFailed(it.message!!)) { DetailsEffect(it.message!!) }
-                    }
-                )
-            }
+            detailsUseCase.execute(id).eventHandle(result = {
+                store.effect(DetailsAction.ShowHide(NoError)) { DetailsEffect(NoError) }
+                store.dispatch(action = DetailsAction.ShowDetailsMovie(it))
+            }, onError = {
+                store.effect(DetailsAction.ShowFailed(it)) { DetailsEffect(it) }
+            }, isLoading = { loading ->
+                store.dispatch(action = DetailsAction.Loading(loading))
+            })
         }
-
-
     }
 }

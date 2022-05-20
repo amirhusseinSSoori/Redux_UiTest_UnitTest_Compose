@@ -4,6 +4,7 @@ import androidx.paging.ExperimentalPagingApi
 import com.amirhusseinsoori.domain.dataSource.remote.DetailsRemote
 import com.amirhusseinsoori.domain.dataSource.remote.MovieRemote
 import kotlinx.coroutines.cancel
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.*
@@ -25,7 +26,9 @@ class MovieRepositoryImpTest{
         runBlocking {
             launch {
                 repository.getAllIMovies()
-                Mockito.verify(mockRemote).fetchAllIMovies()
+                Mockito.verify(mockRemote).fetchAllIMovies().collect {
+                    assertEquals( repository.getAllIMovies(), it)
+                }
                 this.cancel()
             }
             return@runBlocking

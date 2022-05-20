@@ -8,12 +8,10 @@ class DetailsReducer : Reducer<DetailsViewState, DetailsEffect, DetailsAction> {
             is DetailsAction.ShowDetailsMovie -> {
                 displayMovieList(currentState, action)
             }
-            is DetailsAction.LoadingStarted -> {
-                stateAfterLoadingStarted(currentState)
+            is DetailsAction.Loading -> {
+                loadingState(currentState, loading = action.loading)
             }
-            DetailsAction.LoadingFinished -> {
-                stateAfterLoadingCompleted(currentState)
-            }
+
             else -> currentState
         }
     }
@@ -41,16 +39,10 @@ class DetailsReducer : Reducer<DetailsViewState, DetailsEffect, DetailsAction> {
             messageError = "NoError",
         )
 
-    private fun stateAfterLoadingStarted(currentState: DetailsViewState) =
+    private fun loadingState(currentState: DetailsViewState, loading: Boolean) =
         currentState.copy(
-            showProgressBar = true,
+            showProgressBar = loading,
         )
-
-    private fun stateAfterLoadingCompleted(currentState: DetailsViewState) =
-        currentState.copy(
-            showProgressBar = false,
-        )
-
 
     private fun displayMovieList(
         currentState: DetailsViewState,

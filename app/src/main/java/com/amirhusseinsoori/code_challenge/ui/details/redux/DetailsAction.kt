@@ -5,8 +5,7 @@ import com.amirhusseinsoori.domain.redux.Action
 
 sealed class DetailsAction :Action{
     data class ShowDetailsMovie(val data: DetailsEntity) : DetailsAction()
-    object LoadingStarted : DetailsAction()
-    object LoadingFinished : DetailsAction()
+    data class Loading(val loading:Boolean): DetailsAction()
     data class ShowFailed(val errorMessage: String) : DetailsAction()
     data class ShowHide(val errorMessage: String) : DetailsAction()
 }
