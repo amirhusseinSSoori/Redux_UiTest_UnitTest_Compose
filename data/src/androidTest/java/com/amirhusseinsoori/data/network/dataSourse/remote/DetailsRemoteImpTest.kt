@@ -5,7 +5,6 @@ import app.cash.turbine.test
 import com.amirhusseinsoori.data.BaseTest
 import com.amirhusseinsoori.data.network.services.MovieApi
 import com.amirhusseinsoori.domain.dataSource.remote.DetailsRemote
-import com.amirhusseinsoori.domain.exception.CustomResult
 import com.google.common.truth.Truth
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
@@ -34,7 +33,7 @@ class DetailsRemoteImpTest : BaseTest() {
     fun getFakeDetails_returnSuccess() = runBlocking {
         productRemoteDataSource.fetchDetailsRepository(675353).test(timeoutMs = 60_000L) {
             awaitItem().let {
-                Truth.assertThat(it).isInstanceOf(CustomResult.success(it)::class.java)
+                Truth.assertThat(it).isInstanceOf(Result.success(it)::class.java)
                 Truth.assertThat(it).isNotNull()
             }
 

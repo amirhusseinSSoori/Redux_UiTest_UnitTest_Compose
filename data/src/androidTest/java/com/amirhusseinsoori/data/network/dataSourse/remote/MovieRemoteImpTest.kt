@@ -5,8 +5,6 @@ import app.cash.turbine.test
 import com.amirhusseinsoori.data.BaseTest
 import com.amirhusseinsoori.data.network.services.MovieApi
 import com.amirhusseinsoori.domain.dataSource.remote.MovieRemote
-import com.amirhusseinsoori.domain.exception.CustomResult
-import com.google.common.truth.Truth
 import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Rule
