@@ -3,7 +3,6 @@ package com.amirhusseinsoori.data.network.dataSourse.remote
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import app.cash.turbine.test
 import com.amirhusseinsoori.data.BaseTest
-import com.amirhusseinsoori.data.network.services.MovieApi
 import com.amirhusseinsoori.domain.dataSource.remote.DetailsRemote
 import com.google.common.truth.Truth
 import kotlinx.coroutines.ExperimentalCoroutinesApi

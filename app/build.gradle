@@ -83,12 +83,8 @@ dependencies {
     kapt "com.google.dagger:hilt-compiler:2.40.5"
 
 
-    def retrofit_version = '2.9.0'
-    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
-    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
-    implementation "com.squareup.retrofit2:converter-scalars:$retrofit_version"
-    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.1'
 
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.1'
 
 
     implementation "androidx.constraintlayout:constraintlayout-compose:1.0.0"
@@ -102,7 +98,8 @@ dependencies {
 
     implementation("com.airbnb.android:lottie-compose:4.2.0")
 
-
+    def paging_version = "3.1.1"
+    implementation("androidx.paging:paging-runtime-ktx:$paging_version")
     // For Robolectric tests.
     testImplementation 'com.google.dagger:hilt-android-testing:2.38.1'
     // ...with Kotlin.
@@ -113,7 +110,7 @@ dependencies {
     kaptAndroidTest 'com.google.dagger:hilt-android-compiler:2.40.1'
 
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$version"
-
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1'
     androidTestImplementation "androidx.compose.ui:ui-test:$compose_version"
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
