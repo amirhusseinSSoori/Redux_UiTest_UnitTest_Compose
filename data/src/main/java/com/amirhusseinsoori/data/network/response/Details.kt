@@ -4,11 +4,12 @@ import com.amirhusseinsoori.data.network.response.movieDetails.Genre
 import com.amirhusseinsoori.data.network.response.movieDetails.ProductionCompany
 import com.amirhusseinsoori.data.network.response.movieDetails.ProductionCountry
 import com.amirhusseinsoori.data.network.response.movieDetails.SpokenLanguage
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class Details(
     val adult: Boolean? = null,
     val backdrop_path: String? = null,
-    val belongs_to_collection: Any? = null,
     val budget: Int? = null,
     val genres: List<Genre>? = null,
     val homepage: String? = null,
@@ -18,7 +19,7 @@ data class Details(
     val original_title: String? = null,
     val overview: String? = null,
     val popularity: Double? = null,
-    val poster_path: Any? = null,
+    val poster_path: String? = null,
     val production_companies: List<ProductionCompany>? = null,
     val production_countries: List<ProductionCountry>? = null,
     val release_date: String? = null,

@@ -54,6 +54,7 @@ fun DetailsScreen() {
             }
             detailsViewModel.viewEffect.collectAsState(initial = DetailsEffect()).let {
                 if (it.value.messageError != NoError) {
+                    Log.e("DetailsScreen", "DetailsScreen:${it.value.messageError} ", )
                     Toast.makeText(context, "${it.value.messageError}", Toast.LENGTH_SHORT).show()
                 }
             }

@@ -17,7 +17,7 @@ fun Details.mapDetailsToDomain(): DetailsEntity {
     return DetailsEntity(
         adult = adult,
         backdrop_path = backdrop_path ?: NoData,
-        belongs_to_collection = if (belongs_to_collection is String) belongs_to_collection else NoData,
+      //  belongs_to_collection = if (belongs_to_collection is String) belongs_to_collection else NoData,
         budget = budget,
         genres = genres?.mapGenreListToDomain(),
         homepage = homepage ?: NoData,

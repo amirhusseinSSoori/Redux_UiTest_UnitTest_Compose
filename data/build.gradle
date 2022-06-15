@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id 'org.jetbrains.kotlin.plugin.serialization'
 }
 
 android {
@@ -77,5 +78,11 @@ dependencies {
     androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
     testImplementation "org.mockito:mockito-core:4.1.0"
     testImplementation "io.mockk:mockk:1.12.1"
+
+    def ktor_version = "2.0.0"
+    implementation "io.ktor:ktor-client-android:$ktor_version"
+    implementation "io.ktor:ktor-client-logging:$ktor_version"
+    implementation("io.ktor:ktor-client-content-negotiation:$ktor_version")
+    implementation("io.ktor:ktor-serialization-kotlinx-json:$ktor_version")
 
 }
