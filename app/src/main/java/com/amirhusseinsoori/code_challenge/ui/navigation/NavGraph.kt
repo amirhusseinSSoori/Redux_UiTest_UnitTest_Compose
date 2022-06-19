@@ -15,6 +15,7 @@ import com.amirhusseinsoori.code_challenge.ui.details.screen.DetailsScreen
 import com.amirhusseinsoori.code_challenge.ui.intro.Intro
 import com.amirhusseinsoori.code_challenge.ui.movie.MovieViewModel
 import com.amirhusseinsoori.code_challenge.ui.movie.screen.MovieScreen
+import com.amirhusseinsoori.common.ScreenRoute
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.composable
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController

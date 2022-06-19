@@ -7,7 +7,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -18,14 +17,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.navigation.NavController
-import androidx.navigation.NavHostController
 import com.amirhusseinsoori.code_challenge.ui.Loader
-import com.amirhusseinsoori.code_challenge.ui.navigation.ScreenRoute
-import com.amirhusseinsoori.code_challenge.ui.theme.black
 import com.amirhusseinsoori.code_challenge.ui.theme.white
 import com.amirhusseinsoori.code_challenge.ui.utilFont
 import kotlinx.coroutines.delay
 import com.amirhusseinsoori.code_challenge.R
+import com.amirhusseinsoori.common.ScreenRoute
 
 
 @Composable

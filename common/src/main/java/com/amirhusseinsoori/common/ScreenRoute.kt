@@ -1,4 +1,4 @@
-package com.amirhusseinsoori.code_challenge.ui.navigation
+package com.amirhusseinsoori.common
 
 sealed class ScreenRoute(val route: String) {
     object Intro : ScreenRoute("intro_screen")
