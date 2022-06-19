@@ -4,9 +4,8 @@ import com.amirhusseinsoori.data.network.response.movieDetails.Genre
 import com.amirhusseinsoori.data.network.response.movieDetails.ProductionCompany
 import com.amirhusseinsoori.data.network.response.movieDetails.ProductionCountry
 import com.amirhusseinsoori.data.network.response.movieDetails.SpokenLanguage
-import kotlinx.serialization.Serializable
 
-@Serializable
+
 data class Details(
     val adult: Boolean? = null,
     val backdrop_path: String? = null,

@@ -1,8 +1,8 @@
 package com.amirhusseinsoori.data.network.response
 
-import kotlinx.serialization.Serializable
 
-@Serializable
+
+
 data class Movie(
     val adult: Boolean,
     val backdrop_path: String? = null,

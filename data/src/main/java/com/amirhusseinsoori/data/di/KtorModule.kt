@@ -5,6 +5,7 @@ import com.amirhusseinsoori.data.network.interceptor.AuthInterceptor
 import com.amirhusseinsoori.data.network.interceptor.ResponseFormatterInterceptor
 import com.amirhusseinsoori.data.network.response.Details
 import dagger.Module
+import io.ktor.serialization.gson.*
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
@@ -68,16 +69,9 @@ object KtorModule {
             install(Logging) {
                 level = LogLevel.ALL
             }
-            // JSON
+            // GSON
             install(ContentNegotiation) {
-                json(Json {
-                    isLenient = true
-                    serializersModule = SerializersModule {
-                        contextual(
-                            Details.serializer().withJsonFormat(Json { ignoreUnknownKeys = true })
-                        )
-                    }
-                })
+                gson()
             }
             engine {
                 // this: OkHttpConfig
@@ -107,14 +101,3 @@ object KtorModule {
 
 
 }
-
-fun <T> KSerializer<T>.withJsonFormat(json: Json): KSerializer<T> =
-    object : KSerializer<T> by this {
-        override fun deserialize(decoder: Decoder): T {
-            // Cast to JSON-specific interface
-            val jsonInput = decoder as? JsonDecoder ?: error("Can be deserialized only by JSON")
-            // Read the whole content as JSON
-            val originalJson = jsonInput.decodeJsonElement().jsonObject
-            return json.decodeFromJsonElement(this@withJsonFormat, originalJson)
-        }
-    }
