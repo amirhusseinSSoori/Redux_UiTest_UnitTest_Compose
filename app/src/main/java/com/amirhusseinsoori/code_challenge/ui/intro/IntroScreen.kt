@@ -29,7 +29,7 @@ import com.amirhusseinsoori.code_challenge.R
 
 
 @Composable
-fun Intro(navController: NavHostController) {
+fun Intro(navController: NavController) {
     val scale = remember { Animatable(0f) }
     LaunchedEffect(key1 = true) {
         scale.animateTo(

@@ -19,6 +19,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadState
@@ -38,7 +39,7 @@ import com.amirhusseinsoori.domain.entity.MovieEntity
 @Composable
 fun ListMovies(
     viewModel: MovieViewModel,
-    navController: NavHostController
+    navController: NavController
 ) {
     val items = viewModel.viewState.collectAsState().value.items.collectAsLazyPagingItems()
     val context = LocalContext.current
@@ -91,7 +92,7 @@ fun ListMovies(
 
 @ExperimentalCoilApi
 @Composable
-fun MovieItems(movie: MovieEntity, navController: NavHostController) {
+fun MovieItems(movie: MovieEntity, navController: NavController) {
     val painter =
         rememberImagePainter(data = "https://image.tmdb.org/t/p/w500/${movie.poster_path}") {
             crossfade(durationMillis = 1000)
