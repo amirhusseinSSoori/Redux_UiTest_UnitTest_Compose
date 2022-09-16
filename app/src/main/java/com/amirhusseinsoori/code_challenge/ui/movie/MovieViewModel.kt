@@ -1,9 +1,10 @@
 package com.amirhusseinsoori.code_challenge.ui.movie
 
-import androidx.compose.runtime.mutableStateOf
+
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.ExperimentalPagingApi
+import androidx.paging.cachedIn
 import com.amirhusseinsoori.code_challenge.ui.movie.redux.MovieAction
 import com.amirhusseinsoori.code_challenge.ui.movie.redux.MovieEffect
 import com.amirhusseinsoori.code_challenge.ui.movie.redux.MovieReducer
@@ -30,7 +31,6 @@ class MovieViewModel @Inject constructor(
             LoggingMiddleware(),
         )
     )
-    var isLoading = mutableStateOf(true)
     val viewState: StateFlow<MovieViewState> = store.state
 
     init {
@@ -39,7 +39,11 @@ class MovieViewModel @Inject constructor(
 
     fun event() {
         viewModelScope.launch {
-            store.dispatch(action = MovieAction.ShowAllMovies(useCase.execute()))
+            store.dispatch(
+                action = MovieAction.ShowAllMovies(
+                    useCase.execute().cachedIn(viewModelScope)
+                )
+            )
         }
     }
 
