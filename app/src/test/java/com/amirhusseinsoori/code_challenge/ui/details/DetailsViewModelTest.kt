@@ -4,9 +4,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.paging.ExperimentalPagingApi
 import com.amirhusseinsoori.domain.reository.DetailsRepository
 import com.amirhusseinsoori.domain.useCase.DetailsUseCase
-import io.mockk.mockk
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.newSingleThreadContext
 import kotlinx.coroutines.runBlocking

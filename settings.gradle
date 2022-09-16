@@ -12,8 +12,8 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "code_challenge"
+rootProject.name = "redux_movie_compose"
 include ':app'
-include ':domain'
-include ':data'
+include ':core:domain'
+include ':core:data'
 include ':common'

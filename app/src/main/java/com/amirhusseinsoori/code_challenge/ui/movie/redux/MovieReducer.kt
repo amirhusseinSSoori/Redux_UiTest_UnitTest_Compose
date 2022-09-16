@@ -1,6 +1,5 @@
 package com.amirhusseinsoori.code_challenge.ui.movie.redux
 
-import com.amirhusseinsoori.code_challenge.ui.details.redux.DetailsAction
 import com.amirhusseinsoori.domain.redux.Reducer
 
 class MovieReducer : Reducer<MovieViewState, MovieEffect, MovieAction> {

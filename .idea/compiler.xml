@@ -5,6 +5,11 @@
       <module name="code_challenge.app" target="11" />
       <module name="code_challenge.data" target="11" />
       <module name="code_challenge.domain" target="11" />
+      <module name="redux_movie_compose.app" target="11" />
+      <module name="redux_movie_compose.core.data" target="11" />
+      <module name="redux_movie_compose.core.domain" target="11" />
+      <module name="redux_movie_compose.data" target="11" />
+      <module name="redux_movie_compose.domain" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>
